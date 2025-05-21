@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Kanchenjunga:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="shortcut icon" href="../assets/skin3.png" type="image/x-icon">
+    <script src="../js/nav.js"></script>
+    <title>Game</title>
+</head>
+<body>
+    <main>
+        <header>
+            <div class="menu">
+                <ul class="menuList">
+                    <li id="mago" class="menuListItem">
+                        <img src="../assets/magoMenu.png" alt="magoMenu">
+                        <p class="mago">999</p>
+                    </li>
+                    <li id="arqueiro" class="menuListItem">
+                        <img src="../assets/arqueiroMenu.png" alt="arqueiroMenu">
+                        <p class="arqueiro">999</p>
+                    </li>
+                    <li id="guerreiro" class="menuListItem">
+                        <img src="../assets/guerreiroMenu.png" alt="guerreiroMenu">
+                        <p class="guerreiro">999</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="lifeBox">
+                <div class="characterLife">
+                    <div class="baseLife">
+                        <div class="lifeC"></div>
+                    </div>
+                    <p class="lifeTitle">Herói</p>
+                </div>
+                <div class="monsterLife">
+                    <div class="baseLife">
+                        <div class="lifeM"></div>
+                    </div>
+                    <p class="lifeTitle">Monstro</p>
+                </div>
+            </div>
+            <div class="menuEnd" >
+                <button onclick="stop(); navigation('gameMenu')" class="exit"></button>
+                <button class="musicGame" id="off"></button>
+            </div>
+
+        </header>
+        <section>
+            <ul class="list">
+                <li>
+                    <p class="n1">?</p>
+                </li>
+                <li>
+                    <p class="cal">?</p>
+                </li>
+                <li>
+                    <p class="n2">?</p>
+                </li>
+                <li>
+                    <p class="eq">=</p>
+                </li>
+                <li>
+                    <p class="res">?</p>
+                </li>
+            </ul>
+            <ul class="list">
+                <li>
+                    <button  onclick="res(1)" id="res" class="res1">?</button>
+                </li>
+                <li>
+                    <button onclick="res(2)" id="res" class="res2">?</button>
+                </li>
+                <li>
+                    <button onclick="res(3)" id="res" class="res3">?</button>
+                </li>
+                <li>
+                    <button onclick="res(4)" id="res" class="res4">?</button>
+                </li>
+            </ul>
+        </section>
+        <div class="select-entities">
+            <img class="character"  alt="character">
+            <img class="monster"  alt="monster">
+            <img class="characterPower"  alt="character">
+            <img class="monsterPower"  alt="monster">
+        </div>
+        <div class="characterPowerAudio">
+            <audio class="audioPower1"  src = "../assets/power1.mp3"/>
+            <audio class="audioPower2"  src = "../assets/power2.mp3"/>
+            <audio class="audioPower3"  src = "../assets/power3.mp3"/>
+
+            <audio class="audioPowerM1"  src = "../assets/powerM1.mp3"/>
+            <audio class="audioPowerM2"  src = "../assets/powerM1.mp3"/>
+            <audio class="audioPowerM3"  src = "../assets/powerM1.mp3"/>
+        </div>
+    </main>
+    <div class="gameEnd">
+        <button class="gameEndBox">
+            <p class="gameEndText"></p>
+        </button>
+    </div>
+    <script src="../js/game.js"></script>
+    <script src="../js/mapScript.js"></script>
+    <script src="../js/selectEntities.js"></script>
+    <script src="../js/musicGame.js"></script>
+    <script src="../js/points.js"></script>
+
+</body>
+</html>
