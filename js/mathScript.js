@@ -34,6 +34,8 @@ function setMath(params) {
             setLayout("all")
             break;            
         default:
+            localStorage.setItem("math", 1);
+            setLayout("all")
             break;
     }
     

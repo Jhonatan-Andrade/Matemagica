@@ -1,0 +1,100 @@
+header {
+    width: 100%;
+    height: 80px;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 2% ;
+}
+.menuStart{
+    border-radius: 3px;
+}
+.menuList{
+    display: flex;
+    gap: 30px;
+    padding: 0  20px;
+}
+.menuListItem {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+}
+.menuListItem img{
+    width: 30px;
+}
+.menuListItem p{
+    font-size: 9pt;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.menuEnd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.store,.home{
+    width: 36px;
+    height: 36px;
+    background-image:url(../assets/store.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+
+    border: none;
+    cursor: pointer;
+
+}
+
+.store{
+    background-image:url(../assets/store.png);
+}
+.home{
+    background-image:url(../assets/home.png);
+}
+.musicGame{
+    width: 36px;
+    height: 36px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+
+    border: none;
+    cursor: pointer;
+    
+    
+}
+.lifeBox{
+    width: 300px;
+    display: flex;
+    justify-content:space-between ;
+    gap: 5px;
+}
+.characterLife,
+.monsterLife{
+    width: 50%;
+    height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10pt;
+    flex-direction: column;
+    
+}
+.lifeTitle{
+    padding-top: 10px;
+}
+.baseLife{
+    width: 100%;
+    height: 20px;
+    background-color: rgb(160, 160, 160);
+    border-radius: 5px;
+}
+.baseLife div{
+    width: 100%;
+    height: 20px;
+    background-color: rgb(247, 0, 0);
+    border-radius: 5px;
+}

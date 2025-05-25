@@ -1,4 +1,5 @@
-
+localStorage.setItem("lifeM",100)
+localStorage.setItem("lifeC",100)
 // Numeros aleatórios
 function randomPlay(operation) {
 
@@ -32,16 +33,23 @@ function randomPlay(operation) {
         const math = Number(localStorage.getItem("math"))
         const mathAll = Number(localStorage.getItem("mathAll"))
         if (params < 10) {
-            const numberFake =  Math.floor(Math.random() * 10);
+            var numberFake =  Math.floor(Math.random() * 10);
             if (math==4 || math ==5 && mathAll==3 ) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }
             }
+
             return numberFake
         }else if (params > 10 && params < 50) {
-            const numberFake =  Math.floor(Math.random() * 50);
+            var numberFake =  Math.floor(Math.random() * 50);
             if (math==4 || math ==5 && mathAll==3 ) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }
@@ -49,8 +57,11 @@ function randomPlay(operation) {
             return numberFake
 
         }else if (params > 50 && params < 100) {
-            const numberFake =  Math.floor(Math.random() * 100);
+            var numberFake =  Math.floor(Math.random() * 100);
             if (math==4 || math ==5 && mathAll==3 ) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }
@@ -58,8 +69,11 @@ function randomPlay(operation) {
             return numberFake
 
         }else if (params > 100 && params < 1000) {
-            const numberFake =  Math.floor(Math.random() * 1000);
+            var numberFake =  Math.floor(Math.random() * 1000);
              if (math==4 ||math==4 || math ==5 && mathAll==3 ) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }
@@ -67,14 +81,20 @@ function randomPlay(operation) {
             return numberFake
 
         }else if (params > 1000 && params < 10000) {
-            const numberFake =  Math.floor(Math.random() * 1000);
+            var numberFake =  Math.floor(Math.random() * 1000);
             if (math==4) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }else{
                     return numberFake
                 }
             } else if (math==4 || math ==5 && mathAll==3 ) {
+                if (numberFake === params) {
+                    numberFake = numberFake + Math.floor(Math.random() * 4)
+                }
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }else{
@@ -84,7 +104,7 @@ function randomPlay(operation) {
             return numberFake
         }
     }
-      function response(params) {
+    function response(params) {
         const math = Number(localStorage.getItem("math"))    
         const mathAll = Number(localStorage.getItem("mathAll"))
         if (math == 4 || math == 5 &&  mathAll == 3) {
@@ -143,6 +163,9 @@ function mathCal() {
                 break;
             } 
         break;
+        default:randomPlay(1)
+        break;
+
     }
 }
 function disabledButtonList(isDisabled) {
@@ -184,6 +207,7 @@ function isGameOver(gameOver) {
         gameEnd.style.display = "flex"
         gameEndBox.addEventListener('click',()=>{
             window.location.href = "gameMenu.html";
+            localStorage.setItem("nav","1")
         })
         
 }
@@ -201,11 +225,12 @@ function res(resId) {
         const audio1 = document.querySelector(`.audioPower${character}`)
         audio1.currentTime = 0; 
         audio1.play()
-
         const lifeM = document.querySelector(".lifeM");
-        const life = lifeM.clientWidth ;
-        const dano = life - 40;
-        lifeM.style = `width:${dano}px`
+
+        const life = Number(localStorage.getItem("lifeM")) ;
+        const dano = life - 20;
+        localStorage.setItem("lifeM",dano)
+        lifeM.style = `width:${dano}%`
         
          
         if (lifeM.clientWidth == 0 ) {
@@ -231,11 +256,11 @@ function res(resId) {
         audio1.play()
 
         const lifeC = document.querySelector(".lifeC");
-        const life = lifeC.clientWidth ;
-        const dano = life - 40;
-        
-        
-        lifeC.style = `width:${dano}px`
+     
+        const life = Number(localStorage.getItem("lifeC")) ;
+        const dano = life - 20;
+        localStorage.setItem("lifeC",dano)
+        lifeC.style = `width:${dano}%`
 
         if (lifeC.clientWidth == 0 ) {
             isGameOver(true) 
