@@ -23,92 +23,67 @@ function randomPlay(operation) {
         break;
         case 2:boxCal.innerText = "-";res = n1 - n2
         break;
-        case 3:boxCal.innerText = "x";res = n1 * n2
+        case 3:boxCal.innerText = "x";res = n1 * n2;
         break;
-        case 4:boxCal.innerText = "/";res = n1 / n2 
+        case 4:
+            boxCal.innerText = "/";
+            resCal = n1 / n2;
+            res = resCal.toFixed(1)
         break;
     }
-
-    function randomNumberFake(params) {
+    function numberFake(params,numberFakeSize) {
         const math = Number(localStorage.getItem("math"))
         const mathAll = Number(localStorage.getItem("mathAll"))
-        if (params < 10) {
-            var numberFake =  Math.floor(Math.random() * 10);
-            if (math==4 || math ==5 && mathAll==3 ) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
-                if (!Number.isInteger(params)) {
-                    return numberFake.toFixed(1)
-                }
-            }
-
-            return numberFake
-        }else if (params > 10 && params < 50) {
-            var numberFake =  Math.floor(Math.random() * 50);
-            if (math==4 || math ==5 && mathAll==3 ) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
-                if (!Number.isInteger(params)) {
-                    return numberFake.toFixed(1)
-                }
-            }
-            return numberFake
-
-        }else if (params > 50 && params < 100) {
-            var numberFake =  Math.floor(Math.random() * 100);
-            if (math==4 || math ==5 && mathAll==3 ) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
-                if (!Number.isInteger(params)) {
-                    return numberFake.toFixed(1)
-                }
-            }
-            return numberFake
-
-        }else if (params > 100 && params < 1000) {
-            var numberFake =  Math.floor(Math.random() * 1000);
-             if (math==4 ||math==4 || math ==5 && mathAll==3 ) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
-                if (!Number.isInteger(params)) {
-                    return numberFake.toFixed(1)
-                }
-            }
-            return numberFake
-
-        }else if (params > 1000 && params < 10000) {
-            var numberFake =  Math.floor(Math.random() * 1000);
-            if (math==4) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
+        var numberFake =  Math.floor(Math.random() * numberFakeSize)
+        if (math == 4 || math == 5 && mathAll == 3 ) {
+            if (numberFake === params) {
+                numberFake = numberFake + Math.floor(Math.random() * 4)
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }else{
                     return numberFake
                 }
-            } else if (math==4 || math ==5 && mathAll==3 ) {
-                if (numberFake === params) {
-                    numberFake = numberFake + Math.floor(Math.random() * 4)
-                }
+            }else{
                 if (!Number.isInteger(params)) {
                     return numberFake.toFixed(1)
                 }else{
                     return numberFake
                 }
+            }
+        }
+        else{
+            if (numberFake === params) {
+                numberFake = numberFake + Math.floor(Math.random() * 4)
+                return numberFake
             }
             return numberFake
         }
+    }
+    function randomNumberFake(params) {
+        if (params < 10) {
+            const data = numberFake(params,10);
+            return data;
+        }else if (params > 10 && params < 50) {
+            const data = numberFake(params,50);
+            return data;
+
+        }else if (params > 50 && params < 100) {
+            const data = numberFake(params,100);
+            return data;
+
+        }else if (params > 100 && params < 1000) {
+            const data = numberFake(params,1000);
+            return data;
+
+        }
+        const data = numberFake(params,10000);
+        return data;
     }
     function response(params) {
         const math = Number(localStorage.getItem("math"))    
         const mathAll = Number(localStorage.getItem("mathAll"))
         if (math == 4 || math == 5 &&  mathAll == 3) {
-            return params.toFixed(1)
+            return params
         }else{
             return params.toFixed(0)
         }
@@ -122,7 +97,14 @@ function randomPlay(operation) {
         if (n == i) {
             document.getElementsByClassName(`res${n}`)[0].innerText = response(res);
         }else {
-            document.getElementsByClassName(`res${i}`)[0].innerText = randomNumberFake(res);
+            for (let j = 1; j < 5; j++) {
+                const  nr = document.getElementsByClassName(`res${j}`)[0].innerText;
+                if (Number(nr) === res) {
+                    document.getElementsByClassName(`res${i}`)[0].innerText = randomNumberFake(res + n);
+                }else{
+                    document.getElementsByClassName(`res${i}`)[0].innerText = randomNumberFake(res);
+                }
+            }
 
         }
         
