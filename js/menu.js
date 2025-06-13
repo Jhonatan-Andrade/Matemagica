@@ -54,10 +54,6 @@ menu.innerHTML = `
             ${life}
             <div class="menuEnd" >
                 ${isStore}
-                
-                <button 
-                    class="musicGame" 
-                ></button>
             </div>
 `
 if (pg === "store") {
