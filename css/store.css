@@ -1,16 +1,24 @@
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
     background-image: url("../assets/storeBG.png");
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgb(0, 0, 0);
     height: 100vh;
     display: flex;
     justify-content: center; 
     width: 100vw;
+}
+.point-menu-store {
+    background-image: url("../assets/button-menu.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.point-menu-store p {
+    color: rgb(255, 255, 255);
 }
 main {
     width: 1130px;
@@ -18,5 +26,77 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: center;
+}
+.skinAndPower {
+    justify-content: center;
+    align-items: end;
+    display: flex;
+    margin-top: 20%;
+    gap: 10px;
+}
+.skin {
+    width: 115px;
+    height: 160px;
+    background-image:url(../assets/skinBorder.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+
+}
+
+.skinBox img{
+    width: 80px;
+    height: 90px;
+}
+.skinBox p{
+    font-family: 'Press Start 2P';
+    height: 30px;
+    line-height: 30px;
+    font-size: 8pt;
+} 
+.powerList {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding-bottom: 4px;
+}
+.powerItem {
+    width: 140px;
+    height: 98px;
+    background-image:url(../assets/Border.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.power {
+    width: 140px;
+    height: 98px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.power p {
+    font-family: 'Press Start 2P', sans-serif;
+    color: rgb(255, 255, 47);
+    font-size: 8pt;
+}
+.power img {
+    width: 90px;
+    height: 63px;
 }
