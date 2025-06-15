@@ -54,6 +54,7 @@ menu.innerHTML = `
             ${life}
             <div class="menuEnd" >
                 ${isStore}
+                <button onClick="openStatistics()" id="sound" class="openStatistics"></button>
             </div>
 `
 if (pg === "store") {

@@ -35,7 +35,7 @@ header {
     align-items: center;
     gap: 10px;
 }
-.store,.home{
+.store,.home, .openStatistics{
     width: 36px;
     height: 36px;
     background-image:url(../assets/store.png);
@@ -48,7 +48,9 @@ header {
     cursor: pointer;
 
 }
-
+.openStatistics{
+    background-image:url(../assets/statisticsIcon.png);
+}
 .store{
     background-image:url(../assets/store.png);
 }
