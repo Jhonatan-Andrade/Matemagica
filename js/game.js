@@ -174,10 +174,12 @@ function setStatisticsData(map, character, calculation, isVictory){
     const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
     const currentData = statisticsData[0];
     if (isVictory) {
+
         currentData.map[0][map].victory += 1;
         currentData.charactersVictoryDefeat[0][character].victory += 1;
         currentData.calculationsVictoryDefeat[0][calculation].victory += 1;
         currentData.victory += 1;
+
     }else{
         currentData.map[0][map].defeat += 1;
         currentData.charactersVictoryDefeat[0][character].defeat += 1;
@@ -192,7 +194,6 @@ function isGameOver(gameOver) {
     const gameEnd = document.querySelector(".gameEnd") ;
     const gameEndBox = document.querySelector(".gameEndBox") ;
     const gameEndText = document.querySelector(".gameEndText") ;
-    
     if (gameOver) {
         gameEndText.innerText = "Game Over";
         gameEndText.style = "color:red";
@@ -207,8 +208,8 @@ function isGameOver(gameOver) {
             characterData[1][skin-1] = 0
             const data = JSON.stringify(characterData)
             localStorage.setItem(`character`,data);
-        }
-        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("math")),false)
+        }  
+        setStatisticsData(Number(localStorage.getItem("mapAll")),skin,Number(localStorage.getItem("math")),false)
     }else{
         gameEndText.innerText = "Victory"
         gameEndText.style = "color:#00ff22"
@@ -217,8 +218,7 @@ function isGameOver(gameOver) {
         characterData[1][skin-1] = characterData[1][skin-1] + 10;
         const data = JSON.stringify(characterData)
         localStorage.setItem(`character`,data)
-        
-        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("math")),true)
+        setStatisticsData(Number(localStorage.getItem("mapAll")),skin,Number(localStorage.getItem("math")),true)
     }
     gameEnd.style.display = "flex"
     gameEndBox.addEventListener('click',()=>{
