@@ -1,7 +1,8 @@
 localStorage.setItem("lifeM",100)
 localStorage.setItem("lifeC",100)
 if (localStorage.getItem("math") == null) {
-    localStorage.setItem("math",1)
+    localStorage.setItem("math", 1);
+    localStorage.setItem("mathAll", 1);
 }
 // Numeros aleatórios
 function randomPlay(operation) {
@@ -10,8 +11,10 @@ function randomPlay(operation) {
     // e adiciona o número ao elemento com a classe "n1" e "n2"
     const boxN1 = document.getElementsByClassName(`n1`)[0];
     const boxN2 = document.getElementsByClassName(`n2`)[0];
-    const n1 = Math.floor(Math.random() * 100)
-    const n2 = Math.floor(Math.random() * 100)
+    let n1 = Math.floor(Math.random() * 100)
+    let n2 = Math.floor(Math.random() * 100)
+    n1 = n1 == 0 ? n1 + 1 : n1; 
+    n2 = n2 == 0 ? n2 + 1 : n2;
     boxN1.innerText = n1;
     boxN2.innerText = n2;
 
@@ -38,7 +41,7 @@ function randomPlay(operation) {
         const math = Number(localStorage.getItem("math"))
         const mathAll = Number(localStorage.getItem("mathAll"))
         var numberFake =  Math.floor(Math.random() * numberFakeSize)
-        if (math == 4 || math == 5 && mathAll == 3 ) {
+        if (math == 4 || math == 5 && mathAll == 4 ) {
             if (numberFake === params) {
                 numberFake = numberFake + Math.floor(Math.random() * 4)
                 if (!Number.isInteger(params)) {
@@ -85,7 +88,7 @@ function randomPlay(operation) {
     function response(params) {
         const math = Number(localStorage.getItem("math"))    
         const mathAll = Number(localStorage.getItem("mathAll"))
-        if (math == 4 || math == 5 &&  mathAll == 3) {
+        if (math == 4 || math == 5 &&  mathAll == 4) {
             return params
         }else{
             return params.toFixed(0)
@@ -138,13 +141,13 @@ function mathCal() {
             const n =  Math.floor(Math.random() * 4)
             localStorage.setItem("mathAll",n)
             switch (n) {
-                case 0:randomPlay(1);
+                case 1:randomPlay(1);
                 break;
-                case 1:randomPlay(2);
+                case 2:randomPlay(2);
                 break;
-                case 2:randomPlay(3);
+                case 3:randomPlay(3);
                 break;
-                case 3:randomPlay(4);
+                case 4:randomPlay(4);
                 break;
             } 
         break;
@@ -169,14 +172,15 @@ function disabledButtonList(isDisabled) {
 }
 function setStatisticsData(map, character, calculation, isVictory){
     const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
-    
     const currentData = statisticsData[0];
-        if (isVictory) {
+    if (isVictory) {
+
         currentData.map[0][map].victory += 1;
         currentData.charactersVictoryDefeat[0][character].victory += 1;
         currentData.calculationsVictoryDefeat[0][calculation].victory += 1;
         currentData.victory += 1;
-    }else {
+
+    }else{
         currentData.map[0][map].defeat += 1;
         currentData.charactersVictoryDefeat[0][character].defeat += 1;
         currentData.calculationsVictoryDefeat[0][calculation].defeat += 1;

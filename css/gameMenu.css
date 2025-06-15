@@ -181,8 +181,8 @@ section .play button{
     color: #fff;
     font-size: 10pt;
     font-weight: 200; 
-    height: 50px;
-    line-height: 50px;
+    height: 30px;
+    line-height: 30px;
 }
 .statisticsVictoryDefeat{
     display: flex;
@@ -194,13 +194,11 @@ section .play button{
 .statisticsVictoryDefeatItem{
     display: flex;
     flex-direction: row;
-    gap: 10px;
-  
+
 }
 .statisticsVictoryDefeatTitle{
     display: flex;
     flex-direction: column;
-    gap:10px;
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 8pt;
@@ -211,7 +209,7 @@ section .play button{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 }
 .statisticsTitleTotal{
     font-family: 'Press Start 2P', cursive;
