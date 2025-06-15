@@ -62,10 +62,10 @@ function openStatistics(){
         statistics.style.display = "none";
     } else {
         statistics.style.display = "flex";
-        setStatisticsData();
+        openStatisticsData();
     }
 }
-function setStatisticsData() {
+function openStatisticsData() {
     const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
     const currentData = statisticsData[0];
     const statisticsLayout = `
