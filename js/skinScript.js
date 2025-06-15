@@ -1,31 +1,46 @@
 
-
-if (localStorage.getItem("skin") == null) {
-    localStorage.setItem("skin", 1);
-    localStorage.setItem("skinName", "Mago");
-    setImagSkin(1)
-}else{setImagSkin(localStorage.getItem("skin"))}
-
-function setImagSkin(id) {
-        document.getElementsByClassName("skinImg")[0].src = `../assets/skin${id}.png`;
-        document.getElementsByClassName("skinText")[0].innerText = localStorage.getItem("skinName")
+function setImagSkin() {
+        const characterData = JSON.parse(localStorage.getItem("character"))
+        const skin = Number(characterData[0])
+      
+        
+        switch (skin) {
+            case 1: 
+                document.getElementsByClassName("skinText")[0].innerText ="Mago"
+                document.getElementsByClassName("skinImg")[0].src = `../assets/skin${skin}.png`;
+            break;
+            case 2: 
+                document.getElementsByClassName("skinText")[0].innerText ="Arqueiro"
+                document.getElementsByClassName("skinImg")[0].src = `../assets/skin${skin}.png`;
+            break;
+            case 3: 
+                document.getElementsByClassName("skinText")[0].innerText ="Guerreiro"
+                document.getElementsByClassName("skinImg")[0].src = `../assets/skin${skin}.png`;
+            break;
+            default:
+                document.getElementsByClassName("skinText")[0].innerText ="Mago"
+                document.getElementsByClassName("skinImg")[0].src = `../assets/skin${skin}.png`;
+            break;
+        }
 }
+setSkin()
 function setSkin() {
-    switch (Number(localStorage.getItem("skin"))) {
+    const characterData = JSON.parse(localStorage.getItem("character"))
+    switch (Number(characterData[0])) {
         case 1:
-            localStorage.setItem("skin", 2);
-            localStorage.setItem("skinName", "Arquero");
-            setImagSkin(2)
+            characterData[0] = 2;
+            localStorage.setItem("character", JSON.stringify(characterData));
+            setImagSkin()
             break;
         case 2:
-            localStorage.setItem("skin",3);
-            localStorage.setItem("skinName", "Guerrero");
-            setImagSkin(3)
+            characterData[0] = 3;
+            localStorage.setItem("character",JSON.stringify(characterData));
+            setImagSkin()
             break;
         case 3:
-            localStorage.setItem("skin", 1);
-            localStorage.setItem("skinName", "Mago");
-            setImagSkin(1)
+            characterData[0] = 1;
+            localStorage.setItem("character", JSON.stringify(characterData));
+            setImagSkin()
             break;   
         default:
             break;

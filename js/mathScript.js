@@ -6,11 +6,7 @@ function setLayout(params) {
     document.getElementsByClassName("all")[0].classList.remove("selectMath");
 
     document.getElementsByClassName(params)[0].classList.add("selectMath");
-
 }
-
-
-
 function setMath(params) {
     switch (params) {
         case 1:

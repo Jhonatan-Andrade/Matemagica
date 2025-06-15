@@ -123,13 +123,13 @@ mathCal()
 function mathCal() {
 
     switch (Number(localStorage.getItem("math"))) {
-        case 1:randomPlay(1)  
+        case 1:randomPlay(1);localStorage.setItem("mathAll",1) 
         break;
-        case 2:randomPlay(2)  
+        case 2:randomPlay(2);localStorage.setItem("mathAll",2)  
         break;
-        case 3:randomPlay(3)  
+        case 3:randomPlay(3);localStorage.setItem("mathAll",3) 
         break;
-        case 4:randomPlay(4)  
+        case 4:randomPlay(4);localStorage.setItem("mathAll",4)  
         break;
         case 5: 
             const n =  Math.floor(Math.random() * 4)
@@ -164,35 +164,61 @@ function disabledButtonList(isDisabled) {
     }
     
 }
+function setStatisticsData(map, character, calculation, isVictory){
+    const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
+    const currentData = statisticsData[0];
+    
+    currentData.map[0][map][isVictory ? "victory" : "defeat"] += 1;
+    
+    currentData.charactersVictoryDefeat[0][character][isVictory ? "victory" : "defeat"] += 1;
+
+    currentData.calculationsVictoryDefeat[0][calculation][isVictory ? "victory" : "defeat"] += 1;
+    
+    currentData[isVictory ? "victory" : "defeat"] += 1;
+    
+    localStorage.setItem("statisticsData", JSON.stringify(statisticsData));
+}
 function isGameOver(gameOver) {
-        const gameEnd = document.querySelector(".gameEnd") 
-        const gameEndBox = document.querySelector(".gameEndBox") 
-        const gameEndText = document.querySelector(".gameEndText") 
+
+    const gameEnd = document.querySelector(".gameEnd") ;
+    const gameEndBox = document.querySelector(".gameEndBox") ;
+    const gameEndText = document.querySelector(".gameEndText") ;
+    
+    if (gameOver) {
+        gameEndText.innerText = "Game Over";
+        gameEndText.style = "color:red";
+        const characterData = JSON.parse(localStorage.getItem(`character`));
+        const skin = characterData[0];
         
-        if (gameOver) {
-            gameEndText.innerText = "Game Over"
-            gameEndText.style = "color:red"
-            const skin = Number(localStorage.getItem("skin"))
-            const skinPoints = Number(localStorage.getItem(`skinPoints${skin}`))
-            if (skinPoints > 4) {
-                localStorage.setItem(`skinPoints${skin}`,`${skinPoints-5}`)
-            }else{
-                localStorage.setItem(`skinPoints${skin}`,"0")
-            }
+        if (characterData[1][skin-1] > 4) {
+            characterData[1][skin-1] = characterData[1][skin-1] - 5
+            const data = JSON.stringify(characterData)
+            localStorage.setItem(`character`,data);
         }else{
-            gameEndText.innerText = "Victory"
-            gameEndText.style = "color:#00ff22"
-            const skin = Number(localStorage.getItem("skin"))
-            const skinPoints = Number(localStorage.getItem(`skinPoints${skin}`))
-            localStorage.setItem(`skinPoints${skin}`,`${skinPoints+10}`)
+            characterData[1][skin-1] = 0
+            const data = JSON.stringify(characterData)
+            localStorage.setItem(`character`,data);
         }
-        gameEnd.style.display = "flex"
-        gameEndBox.addEventListener('click',()=>{
-            window.location.href = "gameMenu.html";
-            localStorage.setItem("nav","1")
-        })
+        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("math")),false)
+    }else{
+        gameEndText.innerText = "Victory"
+        gameEndText.style = "color:#00ff22"
+        const characterData = JSON.parse(localStorage.getItem(`character`));
+        const skin = characterData[0];
+        characterData[1][skin-1] = characterData[1][skin-1] + 10;
+        const data = JSON.stringify(characterData)
+        localStorage.setItem(`character`,data)
+        
+        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("math")),true)
+    }
+    gameEnd.style.display = "flex"
+    gameEndBox.addEventListener('click',()=>{
+        window.location.href = "gameMenu.html";
+        localStorage.setItem("nav","1")
+    })
         
 }
+
 function res(resId) {
     const res = localStorage.getItem("res");
     const resBox = Number(document.getElementsByClassName(`res${resId}`)[0].innerText);
@@ -203,7 +229,9 @@ function res(resId) {
         const characterPower = document.querySelector(".characterPower");
         characterPower.style = "display: flex;animation: characterPowerAnimation 1s linear;"
         
-        const  character  = Number(localStorage.getItem("skin"))
+
+        const  characterData  = JSON.parse(localStorage.getItem("character"))
+        const  character  = Number(characterData[0])
         const audio1 = document.querySelector(`.audioPower${character}`)
         audio1.currentTime = 0; 
         audio1.play()

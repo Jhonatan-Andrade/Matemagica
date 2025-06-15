@@ -132,3 +132,96 @@ section .play button{
     width: 126px;
     height: 76px;
 }
+.statistics{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.statisticsLayout{
+    width: 700px;
+    height: 500px;
+    background-image: url(../assets/statisticsBG.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
+}
+.statisticsLayout button{
+    width: 36px;
+    height: 36px;
+    background-image: url(../assets/x.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.statisticsLayout h2{
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 12pt;
+    text-align: center;
+}
+.statisticsLayout h3{
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 200; 
+    height: 50px;
+    line-height: 50px;
+}
+.statisticsVictoryDefeat{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.statisticsVictoryDefeatItem{
+    display: flex;
+    flex-direction: row;
+  gap: 10px;
+}
+.statisticsVictoryDefeatTitle{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 100; 
+    width: 30%;
+}
+.statisticsVictoryDefeatRes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+.statisticsVictory,.statisticsDefeat{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 100; 
+
+}
+.statisticsVictory {color: rgb(100, 255, 100);}
+.statisticsDefeat{color: rgba(255, 100, 100);}
+
+

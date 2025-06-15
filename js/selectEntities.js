@@ -1,4 +1,6 @@
-const character = Number(localStorage.getItem('skin'))
+
+const characterData = JSON.parse(localStorage.getItem("character"))
+const character = Number(characterData[0])
 
 switch (character) {
     case 1:

@@ -74,14 +74,8 @@
     <script src="../js/nav.js"></script>
     <script src="../js/clickSound.js"></script>
     <script>
-        if (!localStorage.getItem("skinPoints1")) {
-            localStorage.setItem("skinPoints1","0")
-        } 
-        if (!localStorage.getItem("skinPoints2")) {
-            localStorage.setItem("skinPoints2","0")
-        } 
-        if (!localStorage.getItem("skinPoints3")) {
-            localStorage.setItem("skinPoints3","0")
+        if (!localStorage.getItem("character")) {
+            localStorage.setItem("character",JSON.stringify([1,[0,0,0]]))
         } 
         if (!localStorage.getItem("mathAll")) {
             localStorage.setItem("mathAll","0")
