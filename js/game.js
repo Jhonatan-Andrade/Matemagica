@@ -164,29 +164,40 @@ function disabledButtonList(isDisabled) {
     }
     
 }
+   
 function isGameOver(gameOver) {
-        const gameEnd = document.querySelector(".gameEnd") 
-        const gameEndBox = document.querySelector(".gameEndBox") 
-        const gameEndText = document.querySelector(".gameEndText") 
+        const gameEnd = document.querySelector(".gameEnd") ;
+        const gameEndBox = document.querySelector(".gameEndBox") ;
+        const gameEndText = document.querySelector(".gameEndText") ;
         
         if (gameOver) {
-            gameEndText.innerText = "Game Over"
-            gameEndText.style = "color:red"
-            const skin = Number(localStorage.getItem("skin"))
+            gameEndText.innerText = "Game Over";
+            gameEndText.style = "color:red";
 
-            const skinPoints = Number(localStorage.getItem(`skinPoints${skin}`))
+            const characterData = JSON.parse(localStorage.getItem(`character`));
+            const skin = characterData[0];
+
             
-            if (skinPoints > 4) {
-                localStorage.setItem(`skinPoints${skin}`,`${skinPoints-5}`)
+            if (characterData[1][skin-1] > 4) {
+                characterData[1][skin-1] = characterData[1][skin-1] - 5
+                const data = JSON.stringify(characterData)
+                localStorage.setItem(`character`,data);
             }else{
-                localStorage.setItem(`skinPoints${skin}`,"0")
+                characterData[1][skin-1] = 0
+                const data = JSON.stringify(characterData)
+                localStorage.setItem(`character`,data);
             }
         }else{
             gameEndText.innerText = "Victory"
             gameEndText.style = "color:#00ff22"
-            const skin = Number(localStorage.getItem("skin"))
-            const skinPoints = Number(localStorage.getItem(`skinPoints${skin}`))
-            localStorage.setItem(`skinPoints${skin}`,`${skinPoints+10}`)
+
+            const characterData = JSON.parse(localStorage.getItem(`character`));
+            const skin = characterData[0];
+
+            characterData[1][skin-1] = characterData[1][skin-1] + 10;
+            const data = JSON.stringify(characterData)
+
+            localStorage.setItem(`character`,data)
         }
         gameEnd.style.display = "flex"
         gameEndBox.addEventListener('click',()=>{
@@ -195,6 +206,7 @@ function isGameOver(gameOver) {
         })
         
 }
+
 function res(resId) {
     const res = localStorage.getItem("res");
     const resBox = Number(document.getElementsByClassName(`res${resId}`)[0].innerText);
@@ -205,7 +217,9 @@ function res(resId) {
         const characterPower = document.querySelector(".characterPower");
         characterPower.style = "display: flex;animation: characterPowerAnimation 1s linear;"
         
-        const  character  = Number(localStorage.getItem("skin"))
+
+        const  characterData  = JSON.parse(localStorage.getItem("character"))
+        const  character  = Number(characterData[0])
         const audio1 = document.querySelector(`.audioPower${character}`)
         audio1.currentTime = 0; 
         audio1.play()
