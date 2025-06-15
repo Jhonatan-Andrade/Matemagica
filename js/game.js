@@ -166,15 +166,19 @@ function disabledButtonList(isDisabled) {
 }
 function setStatisticsData(map, character, calculation, isVictory){
     const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
-    const currentData = statisticsData[0];
-    
-    currentData.map[0][map][isVictory ? "victory" : "defeat"] += 1;
-    
-    currentData.charactersVictoryDefeat[0][character][isVictory ? "victory" : "defeat"] += 1;
 
-    currentData.calculationsVictoryDefeat[0][calculation][isVictory ? "victory" : "defeat"] += 1;
-    
-    currentData[isVictory ? "victory" : "defeat"] += 1;
+    const currentData = statisticsData[0];
+        if (isVictory) {
+        currentData.map[0][map].victory += 1;
+        currentData.charactersVictoryDefeat[0][character].victory += 1;
+        currentData.calculationsVictoryDefeat[0][calculation].victory += 1;
+        currentData.victory += 1;
+    }else {
+        currentData.map[0][map].defeat += 1;
+        currentData.charactersVictoryDefeat[0][character].defeat += 1;
+        currentData.calculationsVictoryDefeat[0][calculation].defeat += 1;
+        currentData.defeat += 1;
+    }
     
     localStorage.setItem("statisticsData", JSON.stringify(statisticsData));
 }
