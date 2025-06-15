@@ -135,7 +135,7 @@ section .play button{
 .statistics{
     width: 700px;
     height: 500px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     background-image: url(../assets/statisticsBG.png);

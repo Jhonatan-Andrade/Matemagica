@@ -173,7 +173,9 @@ function isGameOver(gameOver) {
             gameEndText.innerText = "Game Over"
             gameEndText.style = "color:red"
             const skin = Number(localStorage.getItem("skin"))
+
             const skinPoints = Number(localStorage.getItem(`skinPoints${skin}`))
+            
             if (skinPoints > 4) {
                 localStorage.setItem(`skinPoints${skin}`,`${skinPoints-5}`)
             }else{
