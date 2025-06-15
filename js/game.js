@@ -172,6 +172,8 @@ function setStatisticsData(map, character, calculation, isVictory){
         currentData.map[0][map].victory += 1;
         currentData.charactersVictoryDefeat[0][character].victory += 1;
         currentData.calculationsVictoryDefeat[0][calculation].victory += 1;
+        console.log(currentData.calculationsVictoryDefeat[0][calculation]);
+        
         currentData.victory += 1;
     }else {
         currentData.map[0][map].defeat += 1;
