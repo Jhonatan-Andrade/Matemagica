@@ -153,8 +153,8 @@ section .play button{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
-    gap: 20px;
+    padding: 40px 40px 20px 40px;
+    gap: 10px;
 }
 .statisticsLayout button{
     width: 36px;
@@ -189,11 +189,13 @@ section .play button{
     flex-direction: column;
     width: 100%;
     gap: 10px;
+    
 }
 .statisticsVictoryDefeatItem{
     display: flex;
     flex-direction: row;
-  gap: 10px;
+    gap: 10px;
+  
 }
 .statisticsVictoryDefeatTitle{
     display: flex;
@@ -211,6 +213,18 @@ section .play button{
     justify-content: space-between;
     gap: 20px;
 }
+.statisticsTitleTotal{
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 200; 
+}
+.statisticsTotal{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    gap: 10px;
+}
 .statisticsVictory,.statisticsDefeat{
     display: flex;
     flex-direction: column;
@@ -221,7 +235,14 @@ section .play button{
     font-weight: 100; 
 
 }
-.statisticsVictory {color: rgb(100, 255, 100);}
-.statisticsDefeat{color: rgba(255, 100, 100);}
+.statisticsTotalVictory ,.statisticsTotalDefeat{
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 100; 
+    line-height: 100%;
+}
+.statisticsVictory,.statisticsTotalVictory {color: rgb(100, 255, 100);}
+.statisticsDefeat,.statisticsTotalDefeat{color: rgba(255, 100, 100);}
 
 

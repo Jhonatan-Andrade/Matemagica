@@ -157,6 +157,13 @@ function openStatisticsData() {
                     </div>
                 </div>
             </div>
+            <div class="statisticsTotal">
+                <p class="statisticsVictoryDefeatTitle statisticsTitleTotal">Total</h3>
+                <div class="statisticsVictoryDefeatRes">
+                    <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][3].victory}</p>
+                    <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][3].defeat}</p>
+                </div>
+            </div>
         </div>
     `
     document.querySelector(".statistics").innerHTML = statisticsLayout;
