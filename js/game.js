@@ -3,6 +3,8 @@ localStorage.setItem("lifeC",100)
 if (localStorage.getItem("math") == null) {
     localStorage.setItem("math", 1);
     localStorage.setItem("mathAll", 1);
+}else{
+    localStorage.setItem("mathAll",1 + Number(localStorage.getItem("mathAll")));
 }
 // Numeros aleatórios
 function randomPlay(operation) {
@@ -60,27 +62,42 @@ function randomPlay(operation) {
         else{
             if (numberFake === params) {
                 numberFake = numberFake + Math.floor(Math.random() * 4)
-                return numberFake
+                if (mathAll == 2 ) {
+                    if (params < 0) {
+                        return numberFake * -1
+                    }
+                    return numberFake 
+                }else{
+                    return numberFake
+                }
+            }else{
+                if (mathAll == 2) {
+                    if (params < 0) {
+                        return numberFake * -1
+                    }
+                    return numberFake 
+                }else{
+                    return numberFake
+                }
             }
-            return numberFake
         }
     }
     function randomNumberFake(params) {
-        if (params < 10) {
+        if (params >= 0 && params < 10 || params <= 0 && params > -10) {
             const data = numberFake(params,10);
             return data;
-        }else if (params > 10 && params < 50) {
+        }else if (params > 10 && params < 50 || params < -10 && params > -50) {
             const data = numberFake(params,50);
             return data;
-
-        }else if (params > 50 && params < 100) {
+        }else if (params > 50 && params < 100 || params < -50 && params > -100) {
             const data = numberFake(params,100);
             return data;
-
-        }else if (params > 100 && params < 1000) {
+        }else if (params > 100 && params < 1000 || params < -100 && params > -1000) {
             const data = numberFake(params,1000);
             return data;
-
+        }else if (params > 1000 && params < 10000 || params < -1000 && params > -10000) {
+            const data = numberFake(params,10000);
+            return data;
         }
         const data = numberFake(params,10000);
         return data;
@@ -105,8 +122,10 @@ function randomPlay(operation) {
         }else {
             for (let j = 1; j < 5; j++) {
                 const  nr = document.getElementsByClassName(`res${j}`)[0].innerText;
+
                 if (Number(nr) === res) {
                     document.getElementsByClassName(`res${i}`)[0].innerText = randomNumberFake(res + n);
+                
                 }else{
                     document.getElementsByClassName(`res${i}`)[0].innerText = randomNumberFake(res);
                 }
@@ -138,7 +157,7 @@ function mathCal() {
         case 4:randomPlay(4);localStorage.setItem("mathAll",4)  
         break;
         case 5: 
-            const n =  Math.floor(Math.random() * 4)
+            const n =  Math.floor(Math.random() * 4+1)
             localStorage.setItem("mathAll",n)
             switch (n) {
                 case 1:randomPlay(1);
@@ -209,7 +228,7 @@ function isGameOver(gameOver) {
             const data = JSON.stringify(characterData)
             localStorage.setItem(`character`,data);
         }  
-        setStatisticsData(Number(localStorage.getItem("mapAll")),skin,Number(localStorage.getItem("math")),false)
+        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("math")),false)
     }else{
         gameEndText.innerText = "Victory"
         gameEndText.style = "color:#00ff22"
@@ -218,7 +237,7 @@ function isGameOver(gameOver) {
         characterData[1][skin-1] = characterData[1][skin-1] + 10;
         const data = JSON.stringify(characterData)
         localStorage.setItem(`character`,data)
-        setStatisticsData(Number(localStorage.getItem("mapAll")),skin,Number(localStorage.getItem("math")),true)
+        setStatisticsData(Number(localStorage.getItem("map")),skin,Number(localStorage.getItem("mathAll")),true)
     }
     gameEnd.style.display = "flex"
     gameEndBox.addEventListener('click',()=>{
