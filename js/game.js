@@ -1,7 +1,8 @@
 localStorage.setItem("lifeM",100)
 localStorage.setItem("lifeC",100)
-localStorage.setItem("math",1)
-localStorage.setItem("mathAll",1)
+if (localStorage.getItem("math") == null) {
+    localStorage.setItem("math",1)
+}
 // Numeros aleatórios
 function randomPlay(operation) {
 
