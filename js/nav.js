@@ -25,11 +25,4 @@ if (page == "game") {
         localStorage.setItem("nav","0")
     }
 }
-if (page == "gameMenu") {
-    if (Number(localStorage.getItem("nav")) !== 1) {
-        window.location.href='start.html'
-    }else{
-        localStorage.setItem("nav","0")
-    }
-}
 
