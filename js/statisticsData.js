@@ -47,6 +47,10 @@ const data = [
                 "victory": 0,
                 "defeat": 0
             },
+            5:{
+                "victory": 0,
+                "defeat": 0
+            },
             
         }],
         "victory": 0,
@@ -151,10 +155,24 @@ function openStatisticsData() {
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Divisão</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][3].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][3].defeat}</p>
+                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][4].victory}</p>
+                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][4].defeat}</p>
                         </div>
                     </div>
+                    <div class="statisticsVictoryDefeatItem">
+                        <p class="statisticsVictoryDefeatTitle">Aleatório</p>
+                        <div class="statisticsVictoryDefeatRes">
+                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][5].victory}</p>
+                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][5].defeat}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="statisticsVictoryDefeatItem">
+                <p class="statisticsVictoryDefeatTitle">Total</p>
+                <div class="statisticsVictoryDefeatRes">
+                    <p class="statisticsVictory">V = ${currentData.victory}</p>
+                    <p class="statisticsDefeat">D = ${currentData.defeat}</p>
                 </div>
             </div>
         </div>
