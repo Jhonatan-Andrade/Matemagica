@@ -135,16 +135,16 @@ function mathCal() {
         case 4:randomPlay(4);localStorage.setItem("mathAll",4)  
         break;
         case 5: 
-            const n =  Math.floor(Math.random() * 4)
+            const n =  Math.floor(Math.random() * 4+1)
             localStorage.setItem("mathAll",n)
             switch (n) {
-                case 0:randomPlay(1);
+                case 1:randomPlay(1);
                 break;
-                case 1:randomPlay(2);
+                case 2:randomPlay(2);
                 break;
-                case 2:randomPlay(3);
+                case 3:randomPlay(3);
                 break;
-                case 3:randomPlay(4);
+                case 4:randomPlay(4);
                 break;
             } 
         break;
