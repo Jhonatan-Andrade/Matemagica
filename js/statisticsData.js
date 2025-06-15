@@ -75,7 +75,7 @@ function openStatisticsData() {
     const statisticsLayout = `
         <div class="statisticsLayout">
             <button onClick="openStatistics()" id="sound" class="openStatistics"></button>
-            <h2>Statistics</h2>
+            <h2>Estatísticas do Jogo</h2>
             <div class="statisticsMap">
                 <h3>Mapas</h3>
                 <div class="statisticsVictoryDefeat">
@@ -168,18 +168,11 @@ function openStatisticsData() {
                     </div>
                 </div>
             </div>
-            <div class="statisticsVictoryDefeatItem">
-                <p class="statisticsVictoryDefeatTitle">Total</p>
+            <div class="statisticsTotal">
+                <p class="statisticsVictoryDefeatTitle statisticsTitleTotal">Total</p>
                 <div class="statisticsVictoryDefeatRes">
                     <p class="statisticsVictory">V = ${currentData.victory}</p>
                     <p class="statisticsDefeat">D = ${currentData.defeat}</p>
-                </div>
-            </div>
-            <div class="statisticsTotal">
-                <p class="statisticsVictoryDefeatTitle statisticsTitleTotal">Total</h3>
-                <div class="statisticsVictoryDefeatRes">
-                    <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][3].victory}</p>
-                    <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][3].defeat}</p>
                 </div>
             </div>
         </div>
