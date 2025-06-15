@@ -55,7 +55,7 @@ menu.innerHTML = `
             </div>
             ${life}
             <div class="menuEnd" >
-                ${pg === "gameMenu" ? `<button onClick="openStatistics()" id="sound" class="openStatistics"></button>` : ""}
+                ${pg === "gameMenu"||pg === "gamemenu" ? `<button onClick="openStatistics()" id="sound" class="openStatistics"></button>` : ""}
                 ${pg !== "game" ? isStore : ""}
                 ${pg === "game" ? `<button onClick="navigation('gameMenu')" id="sound" class="exitButton"></button>` : ""}
             </div>
