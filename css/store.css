@@ -99,4 +99,14 @@ main {
 .power img {
     width: 90px;
     height: 63px;
+    
+}
+.skinPower {
+    font-family: 'Press Start 2P';
+    font-size: 7pt;
+    line-height: 16px;
+    text-align: center;
+    color: white;
+    margin-top: 4px;
+    height: auto;
 }
