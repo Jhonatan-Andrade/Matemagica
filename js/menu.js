@@ -62,7 +62,7 @@ menu.innerHTML = `
 `
 if (pg === "store") {
     const menuList = document.querySelector(".menuStart")
-    menuList.style = "background-color: rgb(0, 0, 0);"
+    menuList.setAttribute('class', 'point-menu-store')
     
 }
 
