@@ -1,9 +1,13 @@
 
 function setImagSkin() {
-        const characteMagorData = JSON.parse(localStorage.getItem("character"))
+        const characterData = JSON.parse(localStorage.getItem("character"))
+        console.log(characterData);
+
         const skin = Number(characterData[0])
-      
+        console.log(skin);
         
+      
+  
         switch (skin) {
             case 1: 
                 document.getElementsByClassName("skinText")[0].innerText ="Mago"
