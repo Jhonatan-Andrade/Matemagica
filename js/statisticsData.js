@@ -69,9 +69,57 @@ function openStatistics(){
         openStatisticsData();
     }
 }
+
 function openStatisticsData() {
     const statisticsData = JSON.parse(localStorage.getItem("statisticsData"));
     const currentData = statisticsData[0];
+    const dataShow = {
+        map1:[
+            currentData.map[0][1].victory*100/currentData.victory,
+            currentData.map[0][1].defeat*100/currentData.defeat
+        ],
+        map2:[
+            currentData.map[0][2].victory*100/currentData.victory,
+            currentData.map[0][2].defeat*100/currentData.defeat
+        ],
+        map3:[
+            currentData.map[0][3].victory*100/currentData.victory,
+            currentData.map[0][3].defeat*100/currentData.defeat
+        ],
+        char1:[
+            currentData.charactersVictoryDefeat[0][1].victory*100/currentData.victory,
+            currentData.charactersVictoryDefeat[0][1].defeat*100/currentData.defeat
+        ],
+        char2:[
+            currentData.charactersVictoryDefeat[0][2].victory*100/currentData.victory,
+            currentData.charactersVictoryDefeat[0][2].defeat*100/currentData.defeat
+        ],
+        char3:[
+            currentData.charactersVictoryDefeat[0][3].victory*100/currentData.victory,
+            currentData.charactersVictoryDefeat[0][3].defeat*100/currentData.defeat
+        ],
+        calc1:[
+            currentData.calculationsVictoryDefeat[0][1].victory*100/currentData.victory,
+            currentData.calculationsVictoryDefeat[0][1].defeat*100/currentData.defeat
+        ],
+        calc2:[
+            currentData.calculationsVictoryDefeat[0][2].victory*100/currentData.victory,
+            currentData.calculationsVictoryDefeat[0][2].defeat*100/currentData.defeat
+        ],
+        calc3:[
+            currentData.calculationsVictoryDefeat[0][3].victory*100/currentData.victory,
+            currentData.calculationsVictoryDefeat[0][3].defeat*100/currentData.defeat
+        ],
+        calc4:[
+            currentData.calculationsVictoryDefeat[0][4].victory*100/currentData.victory,
+            currentData.calculationsVictoryDefeat[0][4].defeat*100/currentData.defeat
+        ],
+        calc5:[
+            currentData.calculationsVictoryDefeat[0][5].victory*100/currentData.victory,
+            currentData.calculationsVictoryDefeat[0][5].defeat*100/currentData.defeat
+        ],
+    }
+
     const statisticsLayout = `
         <div class="statisticsLayout">
             <button onClick="openStatistics()" id="sound" class="openStatistics"></button>
@@ -82,22 +130,22 @@ function openStatisticsData() {
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Mapa 1</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.map[0][1].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.map[0][1].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.map1[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.map1[0].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Mapa 2</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.map[0][2].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.map[0][2].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.map2[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.map2[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Mapa 3</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.map[0][3].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.map[0][3].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.map3[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.map3[1].toFixed(0)}%</p>
                         </div>
                     </div>
                 </div>
@@ -108,22 +156,22 @@ function openStatisticsData() {
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Mago</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.charactersVictoryDefeat[0][1].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.charactersVictoryDefeat[0][1].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.char1[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.char1[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Arqueiro</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.charactersVictoryDefeat[0][2].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.charactersVictoryDefeat[0][2].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.char2[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.char2[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Guerreiro</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.charactersVictoryDefeat[0][3].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.charactersVictoryDefeat[0][3].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.char3[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.char3[1].toFixed(0)}%</p>
                         </div>
                     </div>
                 </div>
@@ -134,36 +182,36 @@ function openStatisticsData() {
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Adição</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][1].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][1].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.calc1[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.calc1[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Subtração</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][2].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][2].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.calc2[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.calc2[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Multiplicação</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][3].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][3].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.calc3[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.calc3[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Divisão</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][4].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][4].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.calc4[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.calc4[1].toFixed(0)}%</p>
                         </div>
                     </div>
                     <div class="statisticsVictoryDefeatItem">
                         <p class="statisticsVictoryDefeatTitle">Aleatório</p>
                         <div class="statisticsVictoryDefeatRes">
-                            <p class="statisticsVictory">V = ${currentData.calculationsVictoryDefeat[0][5].victory}</p>
-                            <p class="statisticsDefeat">D = ${currentData.calculationsVictoryDefeat[0][5].defeat}</p>
+                            <p class="statisticsVictory">${dataShow.calc5[0].toFixed(0)}%</p>
+                            <p class="statisticsDefeat">${dataShow.calc5[1].toFixed(0)}%</p>
                         </div>
                     </div>
                 </div>
