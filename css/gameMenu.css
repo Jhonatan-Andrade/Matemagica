@@ -235,6 +235,7 @@ section .play button{
     color: #fff;
     font-size: 8pt;
     font-weight: 100; 
+    width: 80px;
 
 }
 .statisticsTotalVictory ,.statisticsTotalDefeat{
@@ -246,5 +247,4 @@ section .play button{
 }
 .statisticsVictory,.statisticsTotalVictory {color: rgb(100, 255, 100);}
 .statisticsDefeat,.statisticsTotalDefeat{color: rgba(255, 100, 100);}
-
 
