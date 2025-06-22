@@ -1,11 +1,7 @@
 
 function setImagSkin() {
         const characterData = JSON.parse(localStorage.getItem("character"))
-        console.log(characterData);
-
         const skin = Number(characterData[0])
-        console.log(skin);
-        
       
   
         switch (skin) {
